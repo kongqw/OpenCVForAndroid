@@ -54,6 +54,7 @@ public class CameraFaceDetectionView extends JavaCameraView implements CameraBri
         Log.i(TAG, "loadOpenCV: b = " + b);
     }
 
+    private boolean isLoadSuccess = false;
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(getContext().getApplicationContext()) {
 
         @Override
@@ -61,6 +62,7 @@ public class CameraFaceDetectionView extends JavaCameraView implements CameraBri
             switch (status) {
                 case LoaderCallbackInterface.SUCCESS: {
                     Log.i(TAG, "OpenCV加载成功");
+                    isLoadSuccess = true;
                     try {
                         InputStream is = getResources().openRawResource(R.raw.lbpcascade_frontalface);
                         File cascadeDir = getContext().getApplicationContext().getDir("cascade", Context.MODE_PRIVATE);
@@ -97,13 +99,16 @@ public class CameraFaceDetectionView extends JavaCameraView implements CameraBri
 
     @Override
     public void enableView() {
-        Log.i(TAG, "enableView: ");
-        super.enableView();
+        if (isLoadSuccess) {
+            super.enableView();
+        }
     }
 
     @Override
     public void disableView() {
-        super.disableView();
+        if (isLoadSuccess) {
+            super.disableView();
+        }
     }
 
     @Override

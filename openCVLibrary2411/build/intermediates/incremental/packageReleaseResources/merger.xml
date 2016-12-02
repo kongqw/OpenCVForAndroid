@@ -6,4 +6,8 @@
           <enum name="back" value="99"/>
           <enum name="front" value="98"/>
        </attr>
-    </declare-styleable></file></source><source path="E:\AndroidStudioProjects\Demo\KqwFaceDetectionDemo\openCVLibrary2411\build\generated\res\rs\release"/><source path="E:\AndroidStudioProjects\Demo\KqwFaceDetectionDemo\openCVLibrary2411\build\generated\res\resValues\release"/></dataSet><dataSet config="release" generated-set="release$Generated"><source path="E:\AndroidStudioProjects\Demo\KqwFaceDetectionDemo\openCVLibrary2411\src\release\res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="CameraBridgeViewBase"><attr format="boolean" name="show_fps"/><attr format="integer" name="camera_id"><enum name="any" value="-1"/><enum name="back" value="99"/><enum name="front" value="98"/></attr></declare-styleable></configuration></mergedItems></merger>
+    </declare-styleable></file></source><source path="E:\AndroidStudioProjects\Demo\KqwFaceDetectionDemo\openCVLibrary2411\build\generated\res\rs\release"/><source path="E:\AndroidStudioProjects\Demo\KqwFaceDetectionDemo\openCVLibrary2411\build\generated\res\resValues\release"/></dataSet><dataSet config="release" generated-set="release$Generated"><source path="E:\AndroidStudioProjects\Demo\KqwFaceDetectionDemo\openCVLibrary2411\src\release\res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="CameraBridgeViewBase"><attr format="boolean" name="show_fps"/><attr format="integer" name="camera_id">
+          <enum name="any" value="-1"/>
+          <enum name="back" value="99"/>
+          <enum name="front" value="98"/>
+       </attr></declare-styleable></configuration></mergedItems></merger>
