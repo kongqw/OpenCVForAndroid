@@ -42,7 +42,7 @@
         android:layout_height="match_parent"
         android:layout_toRightOf="@id/ll">
 
-        <kong.qingwei.kqwfacedetectiondemo.CameraFaceDetectionView
+        <com.kongqw.view.CameraFaceDetectionView
             android:id="@+id/cameraFaceDetectionView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

@@ -13,6 +13,13 @@
         android:label="Tests for org.opencv.test"
         android:targetPackage="org.opencv.test" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
     <application>
         <uses-library android:name="android.test.runner" />
     </application>

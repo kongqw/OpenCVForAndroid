@@ -17,6 +17,8 @@ import org.opencv.core.Rect;
 
 import android.hardware.Camera;
 
+import com.kongqw.view.CameraFaceDetectionView;
+
 public class MainActivity extends AppCompatActivity implements CameraFaceDetectionView.OnFaceDetectorListener {
 
     private static final String TAG = "MainActivity";

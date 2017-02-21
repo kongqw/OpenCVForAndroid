@@ -37,9 +37,12 @@ containing a value of this type.
         public static int show_fps=0x7f010000;
     }
     public static final class id {
-        public static int any=0x7f020000;
-        public static int back=0x7f020001;
-        public static int front=0x7f020002;
+        public static int any=0x7f030000;
+        public static int back=0x7f030001;
+        public static int front=0x7f030002;
+    }
+    public static final class raw {
+        public static int lbpcascade_frontalface=0x7f020000;
     }
     public static final class styleable {
         /** Attributes that can be used with a CameraBridgeViewBase.
