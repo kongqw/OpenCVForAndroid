@@ -1,6 +1,8 @@
 package kong.qingwei.kqwfacedetectiondemo;
 
+import android.Manifest;
 import android.graphics.Bitmap;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +18,7 @@ import org.opencv.core.Mat;
 import org.opencv.core.Rect;
 
 import android.hardware.Camera;
+import android.widget.Toast;
 
 import com.kongqw.view.CameraFaceDetectionView;
 
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements CameraFaceDetecti
     private double cmp;
     private CameraFaceDetectionView mCameraFaceDetectionView;
     private int count = 0;
+    private PermissionsManager mPermissionsManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,20 @@ public class MainActivity extends AppCompatActivity implements CameraFaceDetecti
                 mCameraFaceDetectionView.enableView();
             }
         });
+
+        // 动态权限检查器
+        mPermissionsManager = new PermissionsManager(this) {
+            @Override
+            public void authorized(int requestCode) {
+                Toast.makeText(getApplicationContext(), "权限通过！", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void noAuthorization(int requestCode, String[] lacksPermissions) {
+                Toast.makeText(MainActivity.this, "有权限没有通过", Toast.LENGTH_SHORT).show();
+                PermissionsManager.startAppSettings(getApplicationContext());
+            }
+        };
     }
 
     private BaseLoaderCallback mOpenCVCallBack = new BaseLoaderCallback(this) {
@@ -90,6 +108,14 @@ public class MainActivity extends AppCompatActivity implements CameraFaceDetecti
         super.onResume();
         // 初始化OpenCV
         OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_11, this, mOpenCVCallBack);
+        // 要校验的权限
+        String[] PERMISSIONS = new String[]{Manifest.permission.CAMERA};
+        // 检查权限
+        mPermissionsManager.checkPermissions(0, PERMISSIONS);
+    }
+
+    public void setPermissions(View view) {
+        PermissionsManager.startAppSettings(getApplicationContext());
     }
 
     /**
@@ -138,5 +164,11 @@ public class MainActivity extends AppCompatActivity implements CameraFaceDetecti
 
             isGettingFace = false;
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        mPermissionsManager.recheckPermissions(requestCode, permissions, grantResults);
     }
 }

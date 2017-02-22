@@ -1,6 +1,7 @@
 package kong.qingwei.kqwfacedetectiondemo;
 
 import android.app.Application;
+import android.graphics.Bitmap;
 import android.test.ApplicationTestCase;
 
 /**
@@ -9,5 +10,7 @@ import android.test.ApplicationTestCase;
 public class ApplicationTest extends ApplicationTestCase<Application> {
     public ApplicationTest() {
         super(Application.class);
+
+
     }
 }

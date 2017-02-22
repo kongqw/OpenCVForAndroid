@@ -51,8 +51,10 @@ public class CameraFaceDetectionView extends JavaCameraView implements CameraBri
 
     private void loadOpenCV(Context context) {
         // 初始化OpenCV
-        boolean b = OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_5, context, mLoaderCallback);
-        Log.i(TAG, "loadOpenCV: b = " + b);
+        boolean isInit = OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_5, context, mLoaderCallback);
+        Log.i(TAG, "loadOpenCV: ----------------------------");
+        Log.i(TAG, "loadOpenCV: " + (isInit ? "加载成功" : "请先安装OpenCV Manager！ https://github.com/kongqw/KqwFaceDetectionDemo/tree/master/OpenCVManager"));
+        Log.i(TAG, "loadOpenCV: ----------------------------");
     }
 
     private boolean isLoadSuccess = false;
@@ -61,8 +63,8 @@ public class CameraFaceDetectionView extends JavaCameraView implements CameraBri
         @Override
         public void onManagerConnected(int status) {
             switch (status) {
-                case LoaderCallbackInterface.SUCCESS: {
-                    Log.i(TAG, "OpenCV加载成功");
+                case LoaderCallbackInterface.SUCCESS:
+                    Log.i(TAG, "onManagerConnected: OpenCV加载成功");
                     isLoadSuccess = true;
                     try {
                         InputStream is = getResources().openRawResource(R.raw.lbpcascade_frontalface);
@@ -89,10 +91,20 @@ public class CameraFaceDetectionView extends JavaCameraView implements CameraBri
                         Log.e(TAG, "没有找到级联分类器");
                     }
                     enableView();
-                }
-                break;
-                default:
-                    super.onManagerConnected(status);
+
+                    break;
+                case LoaderCallbackInterface.MARKET_ERROR: // OpenCV loader can not start Google Play Market.
+                    Log.i(TAG, "onManagerConnected: 打开Google Play失败");
+                    break;
+                case LoaderCallbackInterface.INSTALL_CANCELED: // Package installation has been canceled.
+                    Log.i(TAG, "onManagerConnected: 安装被取消");
+                    break;
+                case LoaderCallbackInterface.INCOMPATIBLE_MANAGER_VERSION: // Application is incompatible with this version of OpenCV Manager. Possibly, a service update is required.
+                    Log.i(TAG, "onManagerConnected: 版本不正确");
+                    break;
+                default: // Other status,
+                    Log.i(TAG, "onManagerConnected: 其他错误");
+                    // super.onManagerConnected(status);
                     break;
             }
         }

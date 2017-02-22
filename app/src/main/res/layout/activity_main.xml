@@ -63,5 +63,13 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
             android:text="抓取一张人脸" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:onClick="setPermissions"
+            android:text="设置权限" />
     </RelativeLayout>
 </RelativeLayout>
