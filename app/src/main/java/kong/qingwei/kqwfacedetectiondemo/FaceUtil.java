@@ -1,6 +1,5 @@
 package kong.qingwei.kqwfacedetectiondemo;
 
-import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -39,7 +38,7 @@ import static com.googlecode.javacv.cpp.opencv_highgui.*;
  * Created by kqw on 2016/9/9.
  * FaceUtil
  */
-public class FaceUtil extends Application {
+public class FaceUtil {
 
     private Context mContext;
     public FaceUtil(Context context){
