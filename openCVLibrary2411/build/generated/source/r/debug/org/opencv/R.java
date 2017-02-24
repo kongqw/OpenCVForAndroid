@@ -83,7 +83,7 @@ containing a value of this type.
 </table>
           @attr name org.opencv:camera_id
         */
-        public static final int CameraBridgeViewBase_camera_id = 1;
+        public static int CameraBridgeViewBase_camera_id = 1;
         /**
           <p>This symbol is the offset where the {@link org.opencv.R.attr#show_fps}
           attribute's value can be found in the {@link #CameraBridgeViewBase} array.
@@ -97,6 +97,6 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.opencv:show_fps
         */
-        public static final int CameraBridgeViewBase_show_fps = 0;
+        public static int CameraBridgeViewBase_show_fps = 0;
     };
 }
