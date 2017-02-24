@@ -88,7 +88,6 @@ public final class FaceUtil {
             IplImage image1 = cvLoadImage(pathFile1, CV_LOAD_IMAGE_GRAYSCALE);
             IplImage image2 = cvLoadImage(pathFile2, CV_LOAD_IMAGE_GRAYSCALE);
             if (null == image1 || null == image2) {
-                Log.i(TAG, "CmpPic: image1 = " + image1 + "   image2 = " + image2);
                 return -1;
             }
 
