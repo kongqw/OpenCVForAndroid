@@ -48,6 +48,23 @@ android {
 }
 ```
 
+Step 4. Set screen orientation in your AndroidManifest.xml
+``` xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest ……>
+
+    <application
+        ……>
+        <activity
+            ……
+            android:screenOrientation="landscape">
+            ……
+        </activity>
+    </application>
+
+</manifest>
+```
+
 ## XML
 
 ``` xml

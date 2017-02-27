@@ -4,9 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
-import android.util.Log;
 
-import org.bytedeco.javacpp.opencv_core;
 import org.opencv.core.Mat;
 import org.opencv.core.Rect;
 import org.opencv.core.Size;
@@ -18,14 +16,12 @@ import org.bytedeco.javacpp.opencv_core.CvHistogram;
 
 import static org.bytedeco.javacpp.helper.opencv_imgproc.cvCalcHist;
 import static org.bytedeco.javacpp.opencv_core.CV_HIST_ARRAY;
-import static org.bytedeco.javacpp.opencv_face.createLBPHFaceRecognizer;
 import static org.bytedeco.javacpp.opencv_imgcodecs.cvLoadImage;
 import static org.bytedeco.javacpp.opencv_imgproc.CV_COMP_CORREL;
 import static org.bytedeco.javacpp.opencv_imgproc.CV_COMP_INTERSECT;
 import static org.bytedeco.javacpp.opencv_imgproc.cvCompareHist;
 import static org.bytedeco.javacpp.opencv_imgproc.cvNormalizeHist;
 
-import static org.opencv.core.CvType.CV_32SC1;
 import static org.opencv.highgui.Highgui.CV_LOAD_IMAGE_GRAYSCALE;
 
 /**
@@ -79,15 +75,15 @@ public final class FaceUtil {
     /**
      * 特征对比
      *
-     * @param context Context
-     * @param file1   人脸特征
-     * @param file2   人脸特征
+     * @param context   Context
+     * @param fileName1 人脸特征
+     * @param fileName2 人脸特征
      * @return 相似度
      */
-    public static double compare(Context context, String file1, String file2) {
+    public static double compare(Context context, String fileName1, String fileName2) {
         try {
-            String pathFile1 = getFilePath(context, file1);
-            String pathFile2 = getFilePath(context, file2);
+            String pathFile1 = getFilePath(context, fileName1);
+            String pathFile2 = getFilePath(context, fileName2);
             IplImage image1 = cvLoadImage(pathFile1, CV_LOAD_IMAGE_GRAYSCALE);
             IplImage image2 = cvLoadImage(pathFile2, CV_LOAD_IMAGE_GRAYSCALE);
             if (null == image1 || null == image2) {
@@ -110,15 +106,11 @@ public final class FaceUtil {
             // 参考：http://blog.csdn.net/nicebooks/article/details/8175002
             double c1 = cvCompareHist(Histogram1, Histogram2, CV_COMP_CORREL) * 100;
             double c2 = cvCompareHist(Histogram1, Histogram2, CV_COMP_INTERSECT);
-
-
-
-            Log.i(TAG, "compare: ----------------------------");
-            Log.i(TAG, "compare: c1 = " + c1);
-            Log.i(TAG, "compare: c2 = " + c2);
-            Log.i(TAG, "compare: 平均值 = " + ((c1 + c2) / 2));
-            Log.i(TAG, "compare: ----------------------------");
-
+//            Log.i(TAG, "compare: ----------------------------");
+//            Log.i(TAG, "compare: c1 = " + c1);
+//            Log.i(TAG, "compare: c2 = " + c2);
+//            Log.i(TAG, "compare: 平均值 = " + ((c1 + c2) / 2));
+//            Log.i(TAG, "compare: ----------------------------");
             return (c1 + c2) / 2;
         } catch (Exception e) {
             e.printStackTrace();
