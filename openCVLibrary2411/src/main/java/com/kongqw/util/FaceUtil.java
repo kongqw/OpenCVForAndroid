@@ -84,7 +84,7 @@ public final class FaceUtil {
      * @param file2   人脸特征
      * @return 相似度
      */
-    public static double CmpPic(Context context, String file1, String file2) {
+    public static double compare(Context context, String file1, String file2) {
         try {
             String pathFile1 = getFilePath(context, file1);
             String pathFile2 = getFilePath(context, file2);
@@ -113,11 +113,11 @@ public final class FaceUtil {
 
 
 
-            Log.i(TAG, "CmpPic: ----------------------------");
-            Log.i(TAG, "CmpPic: c1 = " + c1);
-            Log.i(TAG, "CmpPic: c2 = " + c2);
-            Log.i(TAG, "CmpPic: 平均值 = " + ((c1 + c2) / 2));
-            Log.i(TAG, "CmpPic: ----------------------------");
+            Log.i(TAG, "compare: ----------------------------");
+            Log.i(TAG, "compare: c1 = " + c1);
+            Log.i(TAG, "compare: c2 = " + c2);
+            Log.i(TAG, "compare: 平均值 = " + ((c1 + c2) / 2));
+            Log.i(TAG, "compare: ----------------------------");
 
             return (c1 + c2) / 2;
         } catch (Exception e) {

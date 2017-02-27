@@ -1,19 +1,14 @@
 # 说明
 
+运行Demo前请先安装 [OpenCV Manager](https://github.com/kongqw/KqwFaceDetectionDemo/tree/master/OpenCVManager) **(必须！！)**
+并给Demo授予CAMERA权限
+
 [![](https://jitpack.io/v/kongqw/FaceDetectLibrary.svg)](https://jitpack.io/#kongqw/FaceDetectLibrary)
 
-人脸检测 + 人脸识别 的Demo
-
-> aar也已经一并上传，如果导入库有问题，直接导入 [aar](https://github.com/kongqw/KqwFaceDetectionDemo/tree/master/openCVLibrary2411/build/outputs/aar) 即可
-
-
-运行Demo前请先安装 [OpenCV Manager](https://github.com/kongqw/KqwFaceDetectionDemo/tree/master/OpenCVManager) **(必须！！)**
-
-给Demo授予CAMERA权限
 
 ------------
 
-
+## 部署
 
 Step 1. Add the JitPack repository to your build file
 
@@ -31,3 +26,44 @@ Step 2. Add the dependency
 	dependencies {
 	        compile 'com.github.kongqw:FaceDetectLibrary:1.1.1'
 	}
+
+
+## XML
+
+``` xml
+<com.kongqw.view.CameraFaceDetectionView
+        android:id="@+id/cameraFaceDetectionView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+```
+
+## Activity
+
+### 添加人脸检测监听
+
+``` java
+CameraFaceDetectionView cameraFaceDetectionView = (CameraFaceDetectionView) findViewById(R.id.cameraFaceDetectionView);
+cameraFaceDetectionView.setOnFaceDetectorListener(new CameraFaceDetectionView.OnFaceDetectorListener() {
+    @Override
+    public void onFace(Mat mat, Rect rect) {
+
+    }
+});
+```
+
+### 保存人脸特征
+
+``` java
+boolean isSave = FaceUtil.saveImage(Context context, Mat mat, Rect rect, String fileName);
+```
+
+### 提取人脸特征
+
+``` java
+Bitmap bitmap = FaceUtil.getImage(Context context, String fileName);
+```
+
+### 人脸识别（特征对比）
+``` java
+double score = FaceUtil.compare(Context context, String file1, String file2);
+```

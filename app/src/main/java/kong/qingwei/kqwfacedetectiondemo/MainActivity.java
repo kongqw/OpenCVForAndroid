@@ -164,8 +164,8 @@ public class MainActivity extends AppCompatActivity implements CameraFaceDetecti
                 mBitmapFace2 = FaceUtil.getImage(this, "face2");
 
                 // 计算相似度
-                cmp = FaceUtil.CmpPic(this, "face1", "face2");
-                double d = FaceUtil.CmpPic(this, null, "fac456e2");
+                cmp = FaceUtil.compare(this, "face1", "face2");
+                double d = FaceUtil.compare(this, null, "fac456e2");
                 Log.i(TAG, "onFace: d = " + d);
                 Log.i(TAG, "onFace: 相似度 : " + cmp);
             }
