@@ -27,7 +27,7 @@ Step 2. Add the dependency
 
 ``` gradle
 dependencies {
-        compile 'com.github.kongqw:FaceDetectLibrary:1.1.1'
+        compile 'com.github.kongqw:FaceDetectLibrary:1.1.2'
 }
 ```
 
