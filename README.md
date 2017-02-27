@@ -96,11 +96,16 @@ boolean isSave = FaceUtil.saveImage(Context context, Mat mat, Rect rect, String 
 
 ### 提取人脸特征
 
+> 用于显示，对比直接调用 FaceUtil.compare 即可。
+
 ``` java
 Bitmap bitmap = FaceUtil.getImage(Context context, String fileName);
 ```
 
 ### 人脸识别（特征对比）
+
+> 特征文件不存在没有抛异常，返回-1.
+
 ``` java
-double score = FaceUtil.compare(Context context, String file1, String file2);
+double score = FaceUtil.compare(Context context, String fileName1, String fileName2);
 ```
