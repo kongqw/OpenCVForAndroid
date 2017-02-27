@@ -31,6 +31,23 @@ dependencies {
 }
 ```
 
+
+Step 3. Add it in your app build.gradle
+
+``` gradle
+android {
+    ……
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        pickFirst 'org/bytedeco/javacpp/macosx-x86_64/libusb-1.0.dylib'
+        pickFirst 'META-INF/maven/org.bytedeco.javacpp-presets/opencv/pom.properties'
+        pickFirst 'META-INF/maven/org.bytedeco.javacpp-presets/opencv/pom.xml'
+        pickFirst 'META-INF/maven/org.bytedeco.javacpp-presets/ffmpeg/pom.properties'
+        pickFirst 'META-INF/maven/org.bytedeco.javacpp-presets/ffmpeg/pom.xml'
+    }
+}
+```
+
 ## XML
 
 ``` xml
