@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 import android.util.Log;
 
+import org.bytedeco.javacpp.opencv_core;
 import org.opencv.core.Mat;
 import org.opencv.core.Rect;
 import org.opencv.core.Size;
@@ -17,12 +18,14 @@ import org.bytedeco.javacpp.opencv_core.CvHistogram;
 
 import static org.bytedeco.javacpp.helper.opencv_imgproc.cvCalcHist;
 import static org.bytedeco.javacpp.opencv_core.CV_HIST_ARRAY;
+import static org.bytedeco.javacpp.opencv_face.createLBPHFaceRecognizer;
 import static org.bytedeco.javacpp.opencv_imgcodecs.cvLoadImage;
 import static org.bytedeco.javacpp.opencv_imgproc.CV_COMP_CORREL;
 import static org.bytedeco.javacpp.opencv_imgproc.CV_COMP_INTERSECT;
 import static org.bytedeco.javacpp.opencv_imgproc.cvCompareHist;
 import static org.bytedeco.javacpp.opencv_imgproc.cvNormalizeHist;
 
+import static org.opencv.core.CvType.CV_32SC1;
 import static org.opencv.highgui.Highgui.CV_LOAD_IMAGE_GRAYSCALE;
 
 /**
@@ -107,6 +110,8 @@ public final class FaceUtil {
             // 参考：http://blog.csdn.net/nicebooks/article/details/8175002
             double c1 = cvCompareHist(Histogram1, Histogram2, CV_COMP_CORREL) * 100;
             double c2 = cvCompareHist(Histogram1, Histogram2, CV_COMP_INTERSECT);
+
+
 
             Log.i(TAG, "CmpPic: ----------------------------");
             Log.i(TAG, "CmpPic: c1 = " + c1);
