@@ -101,9 +101,6 @@ public java.lang.String getInterfaceDescriptor()
 {
 return DESCRIPTOR;
 }
-/**
-    * @return Returns service version.
-    */
 @Override public int getEngineVersion() throws android.os.RemoteException
 {
 android.os.Parcel _data = android.os.Parcel.obtain();
@@ -196,9 +193,6 @@ static final int TRANSACTION_getLibPathByVersion = (android.os.IBinder.FIRST_CAL
 static final int TRANSACTION_installVersion = (android.os.IBinder.FIRST_CALL_TRANSACTION + 2);
 static final int TRANSACTION_getLibraryList = (android.os.IBinder.FIRST_CALL_TRANSACTION + 3);
 }
-/**
-    * @return Returns service version.
-    */
 public int getEngineVersion() throws android.os.RemoteException;
 /**
     * Finds an installed OpenCV library.

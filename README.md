@@ -88,6 +88,54 @@ cameraFaceDetectionView.setOnFaceDetectorListener(new CameraFaceDetectionView.On
 });
 ```
 
+### 添加加载OpenCV的监听
+
+``` java
+mCameraFaceDetectionView.setOnOpenCVInitListener(new OnOpenCVInitListener() {
+    @Override
+    public void onLoadSuccess() {
+        Log.i(TAG, "onLoadSuccess: ");
+    }
+
+    @Override
+    public void onLoadFail() {
+        Log.i(TAG, "onLoadFail: ");
+    }
+
+    @Override
+    public void onMarketError() {
+        Log.i(TAG, "onMarketError: ");
+    }
+
+    @Override
+    public void onInstallCanceled() {
+        Log.i(TAG, "onInstallCanceled: ");
+    }
+
+    @Override
+    public void onIncompatibleManagerVersion() {
+        Log.i(TAG, "onIncompatibleManagerVersion: ");
+    }
+
+    @Override
+    public void onOtherError() {
+        Log.i(TAG, "onOtherError: ");
+    }
+});
+```
+
+### 加载OpenCV
+
+``` java
+mCameraFaceDetectionView.loadOpenCV(getApplicationContext());
+```
+
+### 切换摄像头
+
+``` java
+mCameraFaceDetectionView.switchCamera();
+```
+
 ### 保存人脸特征
 
 ``` java
@@ -109,3 +157,5 @@ Bitmap bitmap = FaceUtil.getImage(Context context, String fileName);
 ``` java
 double score = FaceUtil.compare(Context context, String fileName1, String fileName2);
 ```
+
+

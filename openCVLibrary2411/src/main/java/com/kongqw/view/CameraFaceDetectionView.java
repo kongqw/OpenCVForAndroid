@@ -1,8 +1,12 @@
 package com.kongqw.view;
 
 import android.content.Context;
+import android.hardware.Camera;
 import android.util.AttributeSet;
 import android.util.Log;
+
+import com.kongqw.interfaces.OnFaceDetectorListener;
+import com.kongqw.interfaces.OnOpenCVInitListener;
 
 import org.opencv.R;
 import org.opencv.android.BaseLoaderCallback;
@@ -23,6 +27,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import static org.bytedeco.javacpp.opencv_objdetect.CV_HAAR_DO_CANNY_PRUNING;
+import static org.bytedeco.javacpp.opencv_objdetect.CV_HAAR_DO_ROUGH_SEARCH;
+import static org.bytedeco.javacpp.opencv_objdetect.CV_HAAR_FIND_BIGGEST_OBJECT;
+import static org.bytedeco.javacpp.opencv_objdetect.CV_HAAR_SCALE_IMAGE;
+
 /**
  * Created by kqw on 2016/9/9.
  * CameraFaceDetectionView
@@ -31,8 +40,11 @@ public class CameraFaceDetectionView extends JavaCameraView implements CameraBri
 
     private static final String TAG = "RobotCameraView";
     private OnFaceDetectorListener mOnFaceDetectorListener;
+    private OnOpenCVInitListener mOnOpenCVInitListener;
     private static final Scalar FACE_RECT_COLOR = new Scalar(0, 255, 0, 255);
     private CascadeClassifier mJavaDetector;
+    // 记录切换摄像头点击次数
+    private int mCameraSwitchCount = 0;
 
     private Mat mRgba;
     private Mat mGray;
@@ -43,18 +55,29 @@ public class CameraFaceDetectionView extends JavaCameraView implements CameraBri
 
     public CameraFaceDetectionView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
-        loadOpenCV(context);
-
-        setCvCameraViewListener(this);
     }
 
-    private void loadOpenCV(Context context) {
+    /**
+     * 加载OpenCV
+     *
+     * @param context context
+     * @return 是否安装了OpenCV
+     */
+    public boolean loadOpenCV(Context context) {
         // 初始化OpenCV
-        boolean isInit = OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_5, context, mLoaderCallback);
-        Log.i(TAG, "loadOpenCV: ----------------------------");
-        Log.i(TAG, "loadOpenCV: " + (isInit ? "加载成功" : "请先安装OpenCV Manager！ https://github.com/kongqw/KqwFaceDetectionDemo/tree/master/OpenCVManager"));
-        Log.i(TAG, "loadOpenCV: ----------------------------");
+        boolean isLoaded = OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_5, context, mLoaderCallback);
+
+        if (isLoaded) {
+            // OpenCV加载成功
+            setCvCameraViewListener(this);
+        } else {
+            // 加载失败
+            Log.i(TAG, "loadOpenCV: ----------------------------");
+            Log.i(TAG, "loadOpenCV: " + "请先安装OpenCV Manager！ https://github.com/kongqw/KqwFaceDetectionDemo/tree/master/OpenCVManager");
+            Log.i(TAG, "loadOpenCV: ----------------------------");
+        }
+
+        return isLoaded;
     }
 
     private boolean isLoadSuccess = false;
@@ -65,6 +88,9 @@ public class CameraFaceDetectionView extends JavaCameraView implements CameraBri
             switch (status) {
                 case LoaderCallbackInterface.SUCCESS:
                     Log.i(TAG, "onManagerConnected: OpenCV加载成功");
+                    if (null != mOnOpenCVInitListener) {
+                        mOnOpenCVInitListener.onLoadSuccess();
+                    }
                     isLoadSuccess = true;
                     try {
                         InputStream is = getResources().openRawResource(R.raw.lbpcascade_frontalface);
@@ -95,15 +121,27 @@ public class CameraFaceDetectionView extends JavaCameraView implements CameraBri
                     break;
                 case LoaderCallbackInterface.MARKET_ERROR: // OpenCV loader can not start Google Play Market.
                     Log.i(TAG, "onManagerConnected: 打开Google Play失败");
+                    if (null != mOnOpenCVInitListener) {
+                        mOnOpenCVInitListener.onMarketError();
+                    }
                     break;
                 case LoaderCallbackInterface.INSTALL_CANCELED: // Package installation has been canceled.
                     Log.i(TAG, "onManagerConnected: 安装被取消");
+                    if (null != mOnOpenCVInitListener) {
+                        mOnOpenCVInitListener.onInstallCanceled();
+                    }
                     break;
                 case LoaderCallbackInterface.INCOMPATIBLE_MANAGER_VERSION: // Application is incompatible with this version of OpenCV Manager. Possibly, a service update is required.
                     Log.i(TAG, "onManagerConnected: 版本不正确");
+                    if (null != mOnOpenCVInitListener) {
+                        mOnOpenCVInitListener.onIncompatibleManagerVersion();
+                    }
                     break;
                 default: // Other status,
                     Log.i(TAG, "onManagerConnected: 其他错误");
+                    if (null != mOnOpenCVInitListener) {
+                        mOnOpenCVInitListener.onOtherError();
+                    }
                     // super.onManagerConnected(status);
                     break;
             }
@@ -149,10 +187,19 @@ public class CameraFaceDetectionView extends JavaCameraView implements CameraBri
             }
         }
 
-        // Java人脸检测器
         if (mJavaDetector != null) {
             MatOfRect faces = new MatOfRect();
-            mJavaDetector.detectMultiScale(mGray, faces, 1.1, 2, 2, new Size(mAbsoluteFaceSize, mAbsoluteFaceSize), new Size());
+            mJavaDetector.detectMultiScale(mGray, // 要检查的灰度图像
+                    faces, // 检测到的人脸
+                    1.1, // 表示在前后两次相继的扫描中，搜索窗口的比例系数。默认为1.1即每次搜索窗口依次扩大10%;
+                    10, // 默认是3 控制误检测，表示默认几次重叠检测到人脸，才认为人脸存在
+                    CV_HAAR_FIND_BIGGEST_OBJECT // 返回一张最大的人脸（无效？）
+                            | CV_HAAR_SCALE_IMAGE
+                            | CV_HAAR_DO_ROUGH_SEARCH
+                            | CV_HAAR_DO_CANNY_PRUNING, //CV_HAAR_DO_CANNY_PRUNING ,// CV_HAAR_SCALE_IMAGE, // TODO: objdetect.CV_HAAR_SCALE_IMAGE
+                    new Size(mAbsoluteFaceSize, mAbsoluteFaceSize),
+                    new Size(mGray.width(), mGray.height()));
+
             // 检测到人脸
             Rect[] facesArray = faces.toArray();
             for (Rect aFacesArray : facesArray) {
@@ -165,12 +212,44 @@ public class CameraFaceDetectionView extends JavaCameraView implements CameraBri
         return mRgba;
     }
 
+    /**
+     * 切换摄像头
+     *
+     * @return 切换摄像头是否成功
+     */
+    public boolean switchCamera() {
+        // 摄像头总数
+        int numberOfCameras = 0;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.GINGERBREAD) {
+            numberOfCameras = Camera.getNumberOfCameras();
+        }
+        // 2个及以上摄像头
+        if (1 < numberOfCameras) {
+            // 设备没有摄像头
+            int index = ++mCameraSwitchCount % numberOfCameras;
+            disableView();
+            setCameraIndex(index);
+            enableView();
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 添加人脸识别额监听
+     *
+     * @param listener 回调接口
+     */
     public void setOnFaceDetectorListener(OnFaceDetectorListener listener) {
         mOnFaceDetectorListener = listener;
     }
 
-    public interface OnFaceDetectorListener {
-        // 检测到一个人脸的回调
-        void onFace(Mat mat, Rect rect);
+    /**
+     * 添加加载OpenCV的监听
+     *
+     * @param listener 回调接口
+     */
+    public void setOnOpenCVInitListener(OnOpenCVInitListener listener) {
+        mOnOpenCVInitListener = listener;
     }
 }

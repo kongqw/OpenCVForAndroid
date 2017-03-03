@@ -13,21 +13,21 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.opencv.android.BaseLoaderCallback;
-import org.opencv.android.LoaderCallbackInterface;
-import org.opencv.android.OpenCVLoader;
 import org.opencv.core.Mat;
 import org.opencv.core.Rect;
 
-import android.hardware.Camera;
 import android.widget.Toast;
 
+import com.kongqw.interfaces.OnFaceDetectorListener;
+import com.kongqw.interfaces.OnOpenCVInitListener;
 import com.kongqw.util.FaceUtil;
 import com.kongqw.view.CameraFaceDetectionView;
 
-public class MainActivity extends AppCompatActivity implements CameraFaceDetectionView.OnFaceDetectorListener {
+public class MainActivity extends AppCompatActivity implements OnFaceDetectorListener {
 
     private static final String TAG = "MainActivity";
+    private static final String FACE1 = "face1";
+    private static final String FACE2 = "face2";
     private static boolean isGettingFace = false;
     private Bitmap mBitmapFace1;
     private Bitmap mBitmapFace2;
@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements CameraFaceDetecti
     private TextView mCmpPic;
     private double cmp;
     private CameraFaceDetectionView mCameraFaceDetectionView;
-    private int count = 0;
     private PermissionsManager mPermissionsManager;
 
     @Override
@@ -47,6 +46,38 @@ public class MainActivity extends AppCompatActivity implements CameraFaceDetecti
         mCameraFaceDetectionView = (CameraFaceDetectionView) findViewById(R.id.cameraFaceDetectionView);
         if (mCameraFaceDetectionView != null) {
             mCameraFaceDetectionView.setOnFaceDetectorListener(this);
+            mCameraFaceDetectionView.setOnOpenCVInitListener(new OnOpenCVInitListener() {
+                @Override
+                public void onLoadSuccess() {
+                    Log.i(TAG, "onLoadSuccess: ");
+                }
+
+                @Override
+                public void onLoadFail() {
+                    Log.i(TAG, "onLoadFail: ");
+                }
+
+                @Override
+                public void onMarketError() {
+                    Log.i(TAG, "onMarketError: ");
+                }
+
+                @Override
+                public void onInstallCanceled() {
+                    Log.i(TAG, "onInstallCanceled: ");
+                }
+
+                @Override
+                public void onIncompatibleManagerVersion() {
+                    Log.i(TAG, "onIncompatibleManagerVersion: ");
+                }
+
+                @Override
+                public void onOtherError() {
+                    Log.i(TAG, "onOtherError: ");
+                }
+            });
+            mCameraFaceDetectionView.loadOpenCV(getApplicationContext());
         }
         // 显示的View
         mImageViewFace1 = (ImageView) findViewById(R.id.face1);
@@ -65,12 +96,9 @@ public class MainActivity extends AppCompatActivity implements CameraFaceDetecti
         switch_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 摄像头总数
-                int numberOfCameras = Camera.getNumberOfCameras();
-                int index = ++count % numberOfCameras;
-                mCameraFaceDetectionView.disableView();
-                mCameraFaceDetectionView.setCameraIndex(index);
-                mCameraFaceDetectionView.enableView();
+                // 切换摄像头
+                boolean isSwitched = mCameraFaceDetectionView.switchCamera();
+                Toast.makeText(getApplicationContext(), isSwitched ? "摄像头切换成功" : "摄像头切换失败", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -112,31 +140,20 @@ public class MainActivity extends AppCompatActivity implements CameraFaceDetecti
         };
     }
 
-    private BaseLoaderCallback mOpenCVCallBack = new BaseLoaderCallback(this) {
-        @Override
-        public void onManagerConnected(int status) {
-            switch (status) {
-                case LoaderCallbackInterface.SUCCESS:
-                    Log.i(TAG, "OpenCV Manager已安装，可以使用OpenCV啦。");
-                    break;
-                default:
-                    super.onManagerConnected(status);
-                    break;
-            }
-        }
-    };
-
     @Override
     protected void onResume() {
         super.onResume();
-        // 初始化OpenCV
-        OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_11, this, mOpenCVCallBack);
         // 要校验的权限
         String[] PERMISSIONS = new String[]{Manifest.permission.CAMERA};
         // 检查权限
         mPermissionsManager.checkPermissions(0, PERMISSIONS);
     }
 
+    /**
+     * 设置应用权限
+     *
+     * @param view view
+     */
     public void setPermissions(View view) {
         PermissionsManager.startAppSettings(getApplicationContext());
     }
@@ -150,23 +167,20 @@ public class MainActivity extends AppCompatActivity implements CameraFaceDetecti
     @Override
     public void onFace(Mat mat, Rect rect) {
         if (isGettingFace) {
-            Log.i(TAG, "onFace: ");
             if (null == mBitmapFace1 || null != mBitmapFace2) {
                 mBitmapFace1 = null;
                 mBitmapFace2 = null;
 
                 // 保存人脸信息并显示
-                FaceUtil.saveImage(this, mat, rect, "face1");
-                mBitmapFace1 = FaceUtil.getImage(this, "face1");
+                FaceUtil.saveImage(this, mat, rect, FACE1);
+                mBitmapFace1 = FaceUtil.getImage(this, FACE1);
                 cmp = 0.0d;
             } else {
-                FaceUtil.saveImage(this, mat, rect, "face2");
-                mBitmapFace2 = FaceUtil.getImage(this, "face2");
+                FaceUtil.saveImage(this, mat, rect, FACE2);
+                mBitmapFace2 = FaceUtil.getImage(this, FACE2);
 
                 // 计算相似度
-                cmp = FaceUtil.compare(this, "face1", "face2");
-                double d = FaceUtil.compare(this, null, "fac456e2");
-                Log.i(TAG, "onFace: d = " + d);
+                cmp = FaceUtil.compare(this, FACE1, FACE2);
                 Log.i(TAG, "onFace: 相似度 : " + cmp);
             }
 

@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
         applicationId "kong.qingwei.kqwfacedetectiondemo"
         minSdkVersion 15
-        targetSdkVersion 23
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
     }
@@ -20,7 +20,52 @@ android {
 
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
-        pickFirst 'org/bytedeco/javacpp/macosx-x86_64/libusb-1.0.dylib'
+//        exclude 'lib/armeabi/libjniavcodec.so'
+//        exclude 'lib/armeabi/libopencv_dnn.so'
+//        exclude 'lib/x86/libavcodec.so'
+//        exclude 'lib/armeabi/libavcodec.so'
+//        exclude 'lib/armeabi/libopencv_flann.so'
+//        exclude 'lib/x86/libopencv_flann.so'
+//        exclude 'lib/x86/libopencv_bioinspired.so'
+//        exclude 'lib/x86/libjnicvkernels.so'
+//        exclude 'lib/armeabi/libswresample.so'
+//        exclude 'lib/x86/libopencv_videoio.so'
+//        exclude 'lib/x86/libjniARToolKitPlus.so'
+//        exclude 'lib/x86/libjniopencv_ximgproc.so'
+//        exclude 'lib/x86/libopencv_video.so'
+//        exclude 'lib/armeabi/libjniswresample.so'
+//        exclude 'lib/x86/libjniopencv_ml.so'
+//        exclude 'lib/armeabi/libjniopencv_optflow.so'
+//        exclude 'lib/x86/libjniavdevice.so'
+//        exclude 'lib/armeabi/libjniopencv_bioinspired.so'
+//        exclude 'lib/armeabi/libjniopencv_calib3d.so'
+//        exclude 'lib/x86/libopencv_shape.so'
+//        exclude 'lib/armeabi/libjniopencv_xfeatures2d.so'
+//        exclude 'lib/x86/libopencv_xfeatures2d.so'
+//        exclude 'lib/armeabi/libjniopencv_dnn.so'
+//        exclude 'lib/x86/libopencv_videostab.so'
+//        exclude 'lib/x86/libopencv_ximgproc.so'
+//        exclude 'lib/armeabi/libjnicvkernels.so'
+//        exclude 'lib/x86/libjniopencv_superres.so'
+//        exclude 'lib/x86/libavformat.so'
+//        exclude 'lib/x86/libopencv_highgui.so'
+//        exclude 'lib/armeabi/libavfilter.so'
+//        exclude 'lib/x86/libjniavutil.so'
+//        exclude 'lib/armeabi/libavformat.so'
+//        exclude 'lib/armeabi/libjniopencv_ml.so'
+//        exclude 'lib/armeabi/libpostproc.so'
+//        exclude 'lib/x86/libjniavfilter.so'
+//        exclude 'lib/x86/libjniopencv_videostab.so'
+//        exclude 'lib/x86/libjniopencv_face.so'
+//        exclude 'lib/armeabi/libjniavutil.so'
+//        exclude 'lib/x86/libjniswresample.so'
+//        exclude 'lib/armeabi/libjniopencv_flann.so'
+//        exclude 'lib/x86/libopencv_stitching.so'
+//        exclude 'lib/armeabi/libjniopencv_superres.so'
+//        exclude 'lib/armeabi/libopencv_xfeatures2d.so'
+//        exclude 'lib/armeabi/libjniopencv_stitching.so'
+//        exclude 'lib/armeabi/libjniopencv_shape.so'
+
         pickFirst 'META-INF/maven/org.bytedeco.javacpp-presets/opencv/pom.properties'
         pickFirst 'META-INF/maven/org.bytedeco.javacpp-presets/opencv/pom.xml'
         pickFirst 'META-INF/maven/org.bytedeco.javacpp-presets/ffmpeg/pom.properties'
@@ -32,6 +77,6 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:appcompat-v7:25.2.0'
     compile project(':openCVLibrary2411')
 }
