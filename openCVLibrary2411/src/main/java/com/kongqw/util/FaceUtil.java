@@ -107,11 +107,11 @@ public final class FaceUtil {
             // 参考：http://blog.csdn.net/nicebooks/article/details/8175002
             double c1 = cvCompareHist(Histogram1, Histogram2, CV_COMP_CORREL) * 100;
             double c2 = cvCompareHist(Histogram1, Histogram2, CV_COMP_INTERSECT);
-            Log.i(TAG, "compare: ----------------------------");
-            Log.i(TAG, "compare: c1 = " + c1);
-            Log.i(TAG, "compare: c2 = " + c2);
-            Log.i(TAG, "compare: 平均值 = " + ((c1 + c2) / 2));
-            Log.i(TAG, "compare: ----------------------------");
+//            Log.i(TAG, "compare: ----------------------------");
+//            Log.i(TAG, "compare: c1 = " + c1);
+//            Log.i(TAG, "compare: c2 = " + c2);
+//            Log.i(TAG, "compare: 平均值 = " + ((c1 + c2) / 2));
+//            Log.i(TAG, "compare: ----------------------------");
             return (c1 + c2) / 2;
         } catch (Exception e) {
             e.printStackTrace();
