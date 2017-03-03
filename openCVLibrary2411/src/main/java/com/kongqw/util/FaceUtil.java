@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
-import android.util.Log;
 
 import org.opencv.core.Mat;
 import org.opencv.core.Rect;
@@ -14,6 +13,8 @@ import org.opencv.imgproc.Imgproc;
 
 import org.bytedeco.javacpp.opencv_core.IplImage;
 import org.bytedeco.javacpp.opencv_core.CvHistogram;
+
+import java.io.File;
 
 import static org.bytedeco.javacpp.helper.opencv_imgproc.cvCalcHist;
 import static org.bytedeco.javacpp.opencv_core.CV_HIST_ARRAY;
@@ -55,6 +56,28 @@ public final class FaceUtil {
         Size size = new Size(100, 100);
         Imgproc.resize(sub, mat, size);
         return Highgui.imwrite(getFilePath(context, fileName), mat);
+    }
+
+    /**
+     * 删除特征
+     *
+     * @param context  Context
+     * @param fileName 特征文件
+     * @return 是否删除成功
+     */
+    public static boolean deleteImage(Context context, String fileName) {
+        // 文件名不能为空
+        if (TextUtils.isEmpty(fileName)) {
+            return false;
+        }
+        // 文件路径不能为空
+        String path = getFilePath(context, fileName);
+        if (path != null) {
+            File file = new File(path);
+            return file.exists() && file.delete();
+        } else {
+            return false;
+        }
     }
 
     /**

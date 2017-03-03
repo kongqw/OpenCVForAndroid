@@ -27,7 +27,7 @@ Step 2. Add the dependency
 
 ``` gradle
 dependencies {
-        compile 'com.github.kongqw:FaceDetectLibrary:1.2.0'
+        compile 'com.github.kongqw:FaceDetectLibrary:1.2.1'
 }
 ```
 
@@ -140,6 +140,12 @@ mCameraFaceDetectionView.switchCamera();
 
 ``` java
 boolean isSave = FaceUtil.saveImage(Context context, Mat mat, Rect rect, String fileName);
+```
+
+### 删除人脸特征
+
+``` java
+boolean isSave = FaceUtil.deleteImage(Context context, String fileName);
 ```
 
 ### 提取人脸特征
