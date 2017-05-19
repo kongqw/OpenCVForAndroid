@@ -19,9 +19,13 @@
 
 ### 效果图
 
+目标检测
+
 ![目标检测](https://github.com/kongqw/OpenCVForAndroid/blob/opencv3.2.0/gif/ObjectDetecting.gif)
 
-![目标检测](https://github.com/kongqw/OpenCVForAndroid/blob/opencv3.2.0/gif/ObjectTracking.gif)
+目标追踪
+
+![目标追踪](https://github.com/kongqw/OpenCVForAndroid/blob/opencv3.2.0/gif/ObjectTracking.gif)
 
 ## 人脸识别
 
