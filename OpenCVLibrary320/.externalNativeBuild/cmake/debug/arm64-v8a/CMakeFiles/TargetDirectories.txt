@@ -1,0 +1,3 @@
+/Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/arm64-v8a/CMakeFiles/native-lib.dir

@@ -9,11 +9,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onDetecting"
         android:text="目标检测" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onTracking"
         android:text="目标跟踪" />
 
 </LinearLayout>

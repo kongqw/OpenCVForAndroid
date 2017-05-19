@@ -1,0 +1,463 @@
+The target system is: Android - 21 - mips64
+The host system is: Darwin - 16.5.0 - x86_64
+Determining if the C compiler works passed with the following output:
+Change Dir: /Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/CMakeTmp
+
+Run Build Command:"/Users/kongqingwei/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_52e19"
+[1/2] Building C object CMakeFiles/cmTC_52e19.dir/testCCompiler.c.o
+[2/2] Linking C executable cmTC_52e19
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/CMakeTmp
+
+Run Build Command:"/Users/kongqingwei/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_5d46e"
+[1/2] Building C object CMakeFiles/cmTC_5d46e.dir/CMakeCCompilerABI.c.o
+[2/2] Linking C executable cmTC_5d46e
+Android clang version 3.8.275480  (based on LLVM 3.8.275480)
+Target: mips64el-none-linux-android
+Thread model: posix
+InstalledDir: /Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin
+Found candidate GCC installation: /Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x
+Selected GCC installation: /Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x
+Candidate multilib: .;@march=mips64r6
+Candidate multilib: 32/mips-r1;@march=mips32
+Candidate multilib: 32/mips-r2;@march=mips32r2
+Candidate multilib: 32/mips-r6;@march=mips32r6
+Selected multilib: .;@march=mips64r6
+ "/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld" --sysroot=/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64 -pie --sysroot=/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64 --eh-frame-hdr -m elf64ltsmip -dynamic-linker /system/bin/linker64 -o cmTC_5d46e /Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64/crtbegin_dynamic.o -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib64 -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64 -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_5d46e.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64/crtend_android.o
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(mips64el-linux-android-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/Users/kongqingwei/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_5d46e"]
+  ignore line: [[1/2] Building C object CMakeFiles/cmTC_5d46e.dir/CMakeCCompilerABI.c.o]
+  ignore line: [[2/2] Linking C executable cmTC_5d46e]
+  ignore line: [Android clang version 3.8.275480  (based on LLVM 3.8.275480)]
+  ignore line: [Target: mips64el-none-linux-android]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin]
+  ignore line: [Found candidate GCC installation: /Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x]
+  ignore line: [Selected GCC installation: /Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x]
+  ignore line: [Candidate multilib: .]
+  ignore line: [@march=mips64r6]
+  ignore line: [Candidate multilib: 32/mips-r1]
+  ignore line: [@march=mips32]
+  ignore line: [Candidate multilib: 32/mips-r2]
+  ignore line: [@march=mips32r2]
+  ignore line: [Candidate multilib: 32/mips-r6]
+  ignore line: [@march=mips32r6]
+  ignore line: [Selected multilib: .]
+  ignore line: [@march=mips64r6]
+  link line: [ "/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld" --sysroot=/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64 -pie --sysroot=/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64 --eh-frame-hdr -m elf64ltsmip -dynamic-linker /system/bin/linker64 -o cmTC_5d46e /Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64/crtbegin_dynamic.o -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib64 -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64 -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_5d46e.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64/crtend_android.o]
+    arg [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld] ==> ignore
+    arg [--sysroot=/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64] ==> ignore
+    arg [-pie] ==> ignore
+    arg [--sysroot=/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf64ltsmip] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/system/bin/linker64] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_5d46e] ==> ignore
+    arg [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64/crtbegin_dynamic.o] ==> ignore
+    arg [-L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x] ==> dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x]
+    arg [-L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib64] ==> dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib64]
+    arg [-L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64] ==> dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64]
+    arg [-L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib] ==> dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib]
+    arg [-L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib] ==> dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib]
+    arg [--build-id] ==> ignore
+    arg [--warn-shared-textrel] ==> ignore
+    arg [--fatal-warnings] ==> ignore
+    arg [--no-undefined] ==> ignore
+    arg [-znoexecstack] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-znow] ==> ignore
+    arg [--gc-sections] ==> ignore
+    arg [-znocopyreloc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--warn-shared-textrel] ==> ignore
+    arg [--fatal-warnings] ==> ignore
+    arg [--no-undefined] ==> ignore
+    arg [-znoexecstack] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-znow] ==> ignore
+    arg [--gc-sections] ==> ignore
+    arg [-znocopyreloc] ==> ignore
+    arg [CMakeFiles/cmTC_5d46e.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [-ldl] ==> lib [dl]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-ldl] ==> lib [dl]
+    arg [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64/crtend_android.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc]
+  collapse library dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x] ==> [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x]
+  collapse library dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib64] ==> [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/mips64el-linux-android/lib64]
+  collapse library dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64] ==> [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib64]
+  collapse library dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib] ==> [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/mips64el-linux-android/lib]
+  collapse library dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib] ==> [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib]
+  implicit libs: [dl;c;dl]
+  implicit dirs: [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x;/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/mips64el-linux-android/lib64;/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib64;/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/mips64el-linux-android/lib;/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/CMakeTmp
+
+Run Build Command:"/Users/kongqingwei/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_338b5"
+[1/2] Building C object CMakeFiles/cmTC_338b5.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_338b5
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/CMakeTmp
+
+Run Build Command:"/Users/kongqingwei/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_9d82f"
+[1/2] Building C object CMakeFiles/cmTC_9d82f.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_9d82f
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/CMakeTmp
+
+Run Build Command:"/Users/kongqingwei/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_66fd2"
+[1/2] Building C object CMakeFiles/cmTC_66fd2.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_66fd2
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/CMakeTmp
+
+Run Build Command:"/Users/kongqingwei/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_98c02"
+[1/2] Building CXX object CMakeFiles/cmTC_98c02.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_98c02
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/CMakeTmp
+
+Run Build Command:"/Users/kongqingwei/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_5cc72"
+[1/2] Building CXX object CMakeFiles/cmTC_5cc72.dir/CMakeCXXCompilerABI.cpp.o
+[2/2] Linking CXX executable cmTC_5cc72
+Android clang version 3.8.275480  (based on LLVM 3.8.275480)
+Target: mips64el-none-linux-android
+Thread model: posix
+InstalledDir: /Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin
+Found candidate GCC installation: /Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x
+Selected GCC installation: /Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x
+Candidate multilib: .;@march=mips64r6
+Candidate multilib: 32/mips-r1;@march=mips32
+Candidate multilib: 32/mips-r2;@march=mips32r2
+Candidate multilib: 32/mips-r6;@march=mips32r6
+Selected multilib: .;@march=mips64r6
+ "/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld" --sysroot=/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64 -pie --sysroot=/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64 --eh-frame-hdr -m elf64ltsmip -dynamic-linker /system/bin/linker64 -o cmTC_5cc72 /Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64/crtbegin_dynamic.o -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib64 -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64 -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_5cc72.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64/crtend_android.o
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(mips64el-linux-android-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/Users/kongqingwei/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_5cc72"]
+  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_5cc72.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [[2/2] Linking CXX executable cmTC_5cc72]
+  ignore line: [Android clang version 3.8.275480  (based on LLVM 3.8.275480)]
+  ignore line: [Target: mips64el-none-linux-android]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin]
+  ignore line: [Found candidate GCC installation: /Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x]
+  ignore line: [Selected GCC installation: /Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x]
+  ignore line: [Candidate multilib: .]
+  ignore line: [@march=mips64r6]
+  ignore line: [Candidate multilib: 32/mips-r1]
+  ignore line: [@march=mips32]
+  ignore line: [Candidate multilib: 32/mips-r2]
+  ignore line: [@march=mips32r2]
+  ignore line: [Candidate multilib: 32/mips-r6]
+  ignore line: [@march=mips32r6]
+  ignore line: [Selected multilib: .]
+  ignore line: [@march=mips64r6]
+  link line: [ "/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld" --sysroot=/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64 -pie --sysroot=/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64 --eh-frame-hdr -m elf64ltsmip -dynamic-linker /system/bin/linker64 -o cmTC_5cc72 /Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64/crtbegin_dynamic.o -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib64 -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64 -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib -L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_5cc72.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64/crtend_android.o]
+    arg [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/bin/ld] ==> ignore
+    arg [--sysroot=/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64] ==> ignore
+    arg [-pie] ==> ignore
+    arg [--sysroot=/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf64ltsmip] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/system/bin/linker64] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_5cc72] ==> ignore
+    arg [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64/crtbegin_dynamic.o] ==> ignore
+    arg [-L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x] ==> dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x]
+    arg [-L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib64] ==> dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib64]
+    arg [-L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64] ==> dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64]
+    arg [-L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib] ==> dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib]
+    arg [-L/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib] ==> dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib]
+    arg [--build-id] ==> ignore
+    arg [--warn-shared-textrel] ==> ignore
+    arg [--fatal-warnings] ==> ignore
+    arg [--no-undefined] ==> ignore
+    arg [-znoexecstack] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-znow] ==> ignore
+    arg [--gc-sections] ==> ignore
+    arg [-znocopyreloc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--warn-shared-textrel] ==> ignore
+    arg [--fatal-warnings] ==> ignore
+    arg [--no-undefined] ==> ignore
+    arg [-znoexecstack] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-znow] ==> ignore
+    arg [--gc-sections] ==> ignore
+    arg [-znocopyreloc] ==> ignore
+    arg [CMakeFiles/cmTC_5cc72.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-ldl] ==> lib [dl]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-ldl] ==> lib [dl]
+    arg [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64/crtend_android.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc]
+  remove lib [gcc]
+  remove lib [gcc]
+  collapse library dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x] ==> [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x]
+  collapse library dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib/../lib64] ==> [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/mips64el-linux-android/lib64]
+  collapse library dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib/../lib64] ==> [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib64]
+  collapse library dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x/../../../../mips64el-linux-android/lib] ==> [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/mips64el-linux-android/lib]
+  collapse library dir [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib] ==> [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib]
+  implicit libs: [stdc++;m;dl;c;dl]
+  implicit dirs: [/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/mips64el-linux-android/4.9.x;/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/mips64el-linux-android/lib64;/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib64;/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64/mips64el-linux-android/lib;/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: /Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/CMakeTmp
+
+Run Build Command:"/Users/kongqingwei/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_8e566"
+[1/2] Building CXX object CMakeFiles/cmTC_8e566.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_8e566
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/CMakeTmp
+
+Run Build Command:"/Users/kongqingwei/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_6562f"
+[1/2] Building CXX object CMakeFiles/cmTC_6562f.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_6562f
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/CMakeTmp
+
+Run Build Command:"/Users/kongqingwei/Library/Android/sdk/cmake/3.6.3155560/bin/ninja" "cmTC_9aa2b"
+[1/2] Building CXX object CMakeFiles/cmTC_9aa2b.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_9aa2b
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates

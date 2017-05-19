@@ -1,0 +1,41 @@
+
+{
+	"buildFiles" : 
+	[
+		"/Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/src/main/cpp/CMakeLists.txt"
+	],
+	"cleanCommands" : 
+	[
+		"/Users/kongqingwei/Library/Android/sdk/cmake/3.6.3155560/bin/cmake --build /Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/x86 --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"native-lib-Debug-x86" : 
+		{
+			"abi" : "x86",
+			"artifactName" : "native-lib",
+			"buildCommand" : "/Users/kongqingwei/Library/Android/sdk/cmake/3.6.3155560/bin/cmake --build /Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/x86 --target native-lib",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=i686-none-linux-android --gcc-toolchain=/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/kongqingwei/Library/Android/sdk/ndk-bundle/platforms/android-9/arch-x86  -Dnative_lib_EXPORTS -isystem /Users/kongqingwei/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/kongqingwei/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/include -isystem /Users/kongqingwei/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security   -O0 -fno-limit-debug-info -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "/Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/src/main/cpp/DetectionBasedTracker_jni.cpp",
+					"workingDirectory" : "/Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/.externalNativeBuild/cmake/debug/x86"
+				}
+			],
+			"output" : "/Users/kongqingwei/Workspace/GitHubProjects/OpenCVForAndroid3.2.0/OpenCVLibrary320/build/intermediates/cmake/debug/obj/x86/libnative-lib.so",
+			"toolchain" : "10023494709280016420"
+		}
+	},
+	"toolchains" : 
+	{
+		"10023494709280016420" : 
+		{
+			"cCompilerExecutable" : "/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/Users/kongqingwei/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+		}
+	}
+}
