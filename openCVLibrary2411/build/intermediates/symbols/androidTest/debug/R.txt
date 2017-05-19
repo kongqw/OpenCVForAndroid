@@ -1,9 +1,0 @@
-int attr camera_id 0x7f010001
-int attr show_fps 0x7f010000
-int id any 0x7f030000
-int id back 0x7f030001
-int id front 0x7f030002
-int raw lbpcascade_frontalface 0x7f020000
-int[] styleable CameraBridgeViewBase { 0x7f010000, 0x7f010001 }
-int styleable CameraBridgeViewBase_camera_id 1
-int styleable CameraBridgeViewBase_show_fps 0
