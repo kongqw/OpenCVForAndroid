@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.kongqw.ObjectDetectingView
+        android:id="@+id/photograph_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="swapCamera"
+        android:text="切换摄像头" />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:visibility="gone">
+
+        <RadioButton
+            android:id="@+id/rb_face"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="人脸检测" />
+
+        <RadioButton
+            android:id="@+id/rb_eye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="眼睛检测" />
+
+        <RadioButton
+            android:id="@+id/rb_upper_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上半身检测" />
+
+        <RadioButton
+            android:id="@+id/rb_lower_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下半身检测" />
+
+        <RadioButton
+            android:id="@+id/rb_full_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全身检测" />
+
+        <RadioButton
+            android:id="@+id/rb_smile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="微笑检测" />
+
+    </RadioGroup>
+
+</RelativeLayout>

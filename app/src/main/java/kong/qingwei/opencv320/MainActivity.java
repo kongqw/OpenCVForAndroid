@@ -1,17 +1,79 @@
 package kong.qingwei.opencv320;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
+
+import com.kongqw.permissionslibrary.PermissionsManager;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
+    private PermissionsManager mPermissionsManager;
+
+    // 要校验的权限
+    private final String[] PERMISSIONS = new String[]{Manifest.permission.CAMERA};
+    // 识别请求码
+    private final int REQUEST_CODE_DETECTION = 0;
+    // 追踪请求码
+    private final int REQUEST_CODE_TRACK = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // 动态权限校验
+        mPermissionsManager = new PermissionsManager(this) {
+
+            @Override
+            public void authorized(int requestCode) {
+                switch (requestCode) {
+                    case REQUEST_CODE_DETECTION:
+                        startActivity(new Intent(MainActivity.this, ObjectDetectingActivity.class));
+                        break;
+                    case REQUEST_CODE_TRACK:
+                        startActivity(new Intent(MainActivity.this, ObjectTrackingActivity.class));
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            @Override
+            public void noAuthorization(int requestCode, String[] lacksPermissions) {
+                Toast.makeText(getApplicationContext(), requestCode + " ： 有权限没有通过！需要授权", Toast.LENGTH_SHORT).show();
+                for (String permission : lacksPermissions) {
+                    Log.i(TAG, "noAuthorization: " + permission);
+                }
+            }
+
+            @Override
+            public void ignore(int requestCode) {
+                // Android 6.0 以下系统不校验
+                Toast.makeText(getApplicationContext(), "Android 6.0 以下系统无需动态校验权限！自行检查！", Toast.LENGTH_SHORT).show();
+
+                authorized(requestCode);
+            }
+        };
+    }
+
+    /**
+     * 复查权限
+     *
+     * @param requestCode  requestCode
+     * @param permissions  permissions
+     * @param grantResults grantResults
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        // 用户做出选择以后复查权限，判断是否通过了权限申请
+        mPermissionsManager.recheckPermissions(requestCode, permissions, grantResults);
     }
 
     /**
@@ -20,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
      * @param view view
      */
     public void onDetecting(View view) {
+        // 检查权限
+        mPermissionsManager.checkPermissions(REQUEST_CODE_DETECTION, PERMISSIONS);
     }
 
     /**
@@ -28,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view view
      */
     public void onTracking(View view) {
-        startActivity(new Intent(this, ObjectTrackingActivity.class));
+        // 检查权限
+        mPermissionsManager.checkPermissions(REQUEST_CODE_TRACK, PERMISSIONS);
     }
 }

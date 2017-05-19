@@ -1,5 +1,7 @@
 package com.kongqw.listener;
 
+import org.opencv.core.Point;
+
 /**
  * Created by kongqingwei on 2017/5/17.
  * OnObjectTrackingListener 目标追踪监听器
@@ -7,7 +9,7 @@ package com.kongqw.listener;
 
 public interface OnObjectTrackingListener {
 
-    void onObjectLocation();
+    void onObjectLocation(Point center);
 
     void onObjectLost();
 }

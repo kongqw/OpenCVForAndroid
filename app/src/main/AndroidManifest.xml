@@ -17,6 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- 目标检测Activity -->
+        <activity
+            android:name=".ObjectDetectingActivity"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <!-- 目标追踪Activity -->
         <activity
             android:name=".ObjectTrackingActivity"

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.kongqw.RobotTrackingView
+    <com.kongqw.ObjectTrackingView
         android:id="@+id/tracking_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

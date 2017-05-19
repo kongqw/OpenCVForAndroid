@@ -5,6 +5,8 @@ import android.hardware.Camera;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import com.kongqw.listener.OnOpenCVLoadListener;
+
 import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.InstallCallbackInterface;
 import org.opencv.android.JavaCameraView;
@@ -17,7 +19,7 @@ import org.opencv.core.Mat;
  * BaseRobotCameraView
  */
 
-public abstract class BaseRobotCameraView extends JavaCameraView implements LoaderCallbackInterface, CameraBridgeViewBase.CvCameraViewListener2 {
+public abstract class BaseCameraView extends JavaCameraView implements LoaderCallbackInterface, CameraBridgeViewBase.CvCameraViewListener2 {
 
     private static final String TAG = "BaseRobotCameraView";
 
@@ -33,9 +35,7 @@ public abstract class BaseRobotCameraView extends JavaCameraView implements Load
     // 控制切换摄像头
     private int mCameraIndexCount = 0;
 
-    protected ObjectDetector mObjectDetector;
-
-    public BaseRobotCameraView(Context context, AttributeSet attrs) {
+    public BaseCameraView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         // 加载OpenCV
@@ -63,12 +63,15 @@ public abstract class BaseRobotCameraView extends JavaCameraView implements Load
             case LoaderCallbackInterface.SUCCESS:
                 Log.i(TAG, "onManagerConnected: 加载成功");
                 isLoadSuccess = true;
-                // 创建目标检测器
-                mObjectDetector = new ObjectDetector(getContext());
+
                 // 加载成功
                 onOpenCVLoadSuccess();
 
                 enableView();
+
+                if (null != mOnOpenCVLoadListener) {
+                    mOnOpenCVLoadListener.onOpenCVLoadSuccess();
+                }
                 break;
             default:
                 isLoadSuccess = false;
@@ -76,6 +79,9 @@ public abstract class BaseRobotCameraView extends JavaCameraView implements Load
                 // super.onManagerConnected(status);
                 onOpenCVLoadFail();
                 Log.i(TAG, "onManagerConnected: 加载失败");
+                if (null != mOnOpenCVLoadListener) {
+                    mOnOpenCVLoadListener.onOpenCVLoadFail();
+                }
                 break;
         }
     }
@@ -84,6 +90,10 @@ public abstract class BaseRobotCameraView extends JavaCameraView implements Load
     public void onPackageInstall(int operation, InstallCallbackInterface callback) {
         // OpenCV Manager 没有安装
         Log.i(TAG, "onPackageInstall: ");
+
+        if (null != mOnOpenCVLoadListener) {
+            mOnOpenCVLoadListener.onNotInstallOpenCVManager();
+        }
     }
 
     @Override
@@ -142,8 +152,6 @@ public abstract class BaseRobotCameraView extends JavaCameraView implements Load
         super.onDetachedFromWindow();
         Log.i(TAG, "onDetachedFromWindow: ");
         disableView();
-
-        mObjectDetector.release();
     }
 
 
@@ -167,13 +175,25 @@ public abstract class BaseRobotCameraView extends JavaCameraView implements Load
 //            manager = (CameraManager) getContext().getApplicationContext().getSystemService(Context.CAMERA_SERVICE);
 //            try {
 //                String[] cameraIdList = manager.getCameraIdList();
+//                return cameraIdList.length;
 //            } catch (CameraAccessException e) {
 //                e.printStackTrace();
+//                return 0;
 //            }
 //        } else {
-//            Camera.getNumberOfCameras();
+//            return Camera.getNumberOfCameras();
 //        }
-
         return Camera.getNumberOfCameras();
+    }
+
+    private OnOpenCVLoadListener mOnOpenCVLoadListener;
+
+    /**
+     * 添加OpenCV加载的监听
+     *
+     * @param listener 监听
+     */
+    public void setOnOpenCVLoadListener(OnOpenCVLoadListener listener) {
+        mOnOpenCVLoadListener = listener;
     }
 }

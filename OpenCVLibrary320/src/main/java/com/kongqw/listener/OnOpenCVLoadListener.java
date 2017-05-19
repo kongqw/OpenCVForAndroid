@@ -12,4 +12,7 @@ public interface OnOpenCVLoadListener {
 
     // OpenCV加载失败
     void onOpenCVLoadFail();
+
+    // 没有安装OpenCVManager
+    void onNotInstallOpenCVManager();
 }

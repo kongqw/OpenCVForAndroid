@@ -9,17 +9,19 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.kongqw.RobotTrackingView;
+import com.kongqw.ObjectTrackingView;
 import com.kongqw.listener.OnCalcBackProjectListener;
 import com.kongqw.listener.OnObjectTrackingListener;
+import com.kongqw.listener.OnOpenCVLoadListener;
 
 import org.opencv.android.Utils;
 import org.opencv.core.Mat;
+import org.opencv.core.Point;
 
 public class ObjectTrackingActivity extends Activity {
 
     private static final String TAG = "RobotTrackingActivity";
-    private RobotTrackingView robotTrackingView;
+    private ObjectTrackingView objectTrackingView;
     private ImageView imageView;
     private Bitmap bitmap;
 
@@ -31,8 +33,26 @@ public class ObjectTrackingActivity extends Activity {
 
         imageView = (ImageView) findViewById(R.id.image_view);
 
-        robotTrackingView = (RobotTrackingView) findViewById(R.id.tracking_view);
-        robotTrackingView.setOnCalcBackProjectListener(new OnCalcBackProjectListener() {
+        objectTrackingView = (ObjectTrackingView) findViewById(R.id.tracking_view);
+
+        objectTrackingView.setOnOpenCVLoadListener(new OnOpenCVLoadListener() {
+            @Override
+            public void onOpenCVLoadSuccess() {
+                Toast.makeText(getApplicationContext(), "OpenCV 加载成功", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onOpenCVLoadFail() {
+                Toast.makeText(getApplicationContext(), "OpenCV 加载失败", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNotInstallOpenCVManager() {
+                Toast.makeText(getApplicationContext(), "没有安装OpenCV Manager", Toast.LENGTH_SHORT).show();
+            }
+        });
+        // 显示反投影图 调试用
+        objectTrackingView.setOnCalcBackProjectListener(new OnCalcBackProjectListener() {
             @Override
             public void onCalcBackProject(final Mat backProject) {
                 Log.i(TAG, "onCalcBackProject: " + backProject);
@@ -48,10 +68,11 @@ public class ObjectTrackingActivity extends Activity {
                 });
             }
         });
-        robotTrackingView.setOnObjectTrackingListener(new OnObjectTrackingListener() {
+        // 目标检测回调
+        objectTrackingView.setOnObjectTrackingListener(new OnObjectTrackingListener() {
             @Override
-            public void onObjectLocation() {
-
+            public void onObjectLocation(Point center) {
+                Log.i(TAG, "onObjectLocation: 目标位置 [" + center.x + ", " + center.y + "]");
             }
 
             @Override
@@ -67,7 +88,12 @@ public class ObjectTrackingActivity extends Activity {
         });
     }
 
+    /**
+     * 切换摄像头
+     *
+     * @param view view
+     */
     public void swapCamera(View view) {
-        robotTrackingView.swapCamera();
+        objectTrackingView.swapCamera();
     }
 }
