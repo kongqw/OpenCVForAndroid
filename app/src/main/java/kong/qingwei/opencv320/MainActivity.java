@@ -4,16 +4,12 @@ import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.kongqw.permissionslibrary.PermissionsManager;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
-    private static final String TAG = "MainActivity";
     private PermissionsManager mPermissionsManager;
 
     // 要校验的权限
@@ -33,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void authorized(int requestCode) {
+                // 权限通过
                 switch (requestCode) {
                     case REQUEST_CODE_DETECTION:
                         startActivity(new Intent(MainActivity.this, ObjectDetectingActivity.class));
@@ -47,17 +44,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void noAuthorization(int requestCode, String[] lacksPermissions) {
-                Toast.makeText(getApplicationContext(), requestCode + " ： 有权限没有通过！需要授权", Toast.LENGTH_SHORT).show();
-                for (String permission : lacksPermissions) {
-                    Log.i(TAG, "noAuthorization: " + permission);
-                }
+                // 缺少必要权限
+                showPermissionDialog();
             }
 
             @Override
             public void ignore(int requestCode) {
                 // Android 6.0 以下系统不校验
-                Toast.makeText(getApplicationContext(), "Android 6.0 以下系统无需动态校验权限！自行检查！", Toast.LENGTH_SHORT).show();
-
                 authorized(requestCode);
             }
         };

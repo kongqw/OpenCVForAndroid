@@ -39,12 +39,11 @@ public abstract class BaseCameraView extends JavaCameraView implements LoaderCal
         super(context, attrs);
 
         // 加载OpenCV
-        boolean loadOpenCV = loadOpenCV(context);
-        Log.i(TAG, "BaseRobotCameraView [Load OpenCV] : " + loadOpenCV);
+        // boolean loadOpenCV = loadOpenCV(context);
+        // Log.i(TAG, "BaseRobotCameraView [Load OpenCV] : " + loadOpenCV);
 
         setCvCameraViewListener(this);
     }
-
 
     /**
      * 加载OpenCV
@@ -52,7 +51,7 @@ public abstract class BaseCameraView extends JavaCameraView implements LoaderCal
      * @param context 上下文
      * @return 是否加载成功
      */
-    private boolean loadOpenCV(Context context) {
+    public boolean loadOpenCV(Context context) {
         // 初始化OpenCV
         return OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_2_0, context, this);
     }
@@ -91,6 +90,7 @@ public abstract class BaseCameraView extends JavaCameraView implements LoaderCal
         // OpenCV Manager 没有安装
         Log.i(TAG, "onPackageInstall: ");
 
+        // Toast.makeText(getContext(), "OpenCV Manager 没有安装", Toast.LENGTH_SHORT).show();
         if (null != mOnOpenCVLoadListener) {
             mOnOpenCVLoadListener.onNotInstallOpenCVManager();
         }

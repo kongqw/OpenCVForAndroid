@@ -1,8 +1,11 @@
 package kong.qingwei.opencv320;
 
-import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -18,7 +21,7 @@ import org.opencv.android.Utils;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
 
-public class ObjectTrackingActivity extends Activity {
+public class ObjectTrackingActivity extends BaseActivity {
 
     private static final String TAG = "RobotTrackingActivity";
     private ObjectTrackingView objectTrackingView;
@@ -48,7 +51,7 @@ public class ObjectTrackingActivity extends Activity {
 
             @Override
             public void onNotInstallOpenCVManager() {
-                Toast.makeText(getApplicationContext(), "没有安装OpenCV Manager", Toast.LENGTH_SHORT).show();
+                showInstallDialog();
             }
         });
         // 显示反投影图 调试用
@@ -86,6 +89,8 @@ public class ObjectTrackingActivity extends Activity {
                 });
             }
         });
+
+        objectTrackingView.loadOpenCV(getApplicationContext());
     }
 
     /**

@@ -21,12 +21,13 @@
         <activity
             android:name=".ObjectDetectingActivity"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+            android:theme="@style/FullscreenTheme" />
         <!-- 目标追踪Activity -->
         <activity
             android:name=".ObjectTrackingActivity"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+            android:theme="@style/FullscreenTheme" />
+        <activity android:name=".BaseActivity"></activity>
     </application>
 
 </manifest>

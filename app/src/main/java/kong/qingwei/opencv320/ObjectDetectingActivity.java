@@ -1,6 +1,5 @@
 package kong.qingwei.opencv320;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -14,7 +13,7 @@ import com.kongqw.listener.OnOpenCVLoadListener;
 
 import org.opencv.core.Scalar;
 
-public class ObjectDetectingActivity extends Activity implements CompoundButton.OnCheckedChangeListener {
+public class ObjectDetectingActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener {
 
     private ObjectDetectingView objectDetectingView;
     private ObjectDetector mFaceDetector;
@@ -38,6 +37,7 @@ public class ObjectDetectingActivity extends Activity implements CompoundButton.
         ((RadioButton) findViewById(R.id.rb_smile)).setOnCheckedChangeListener(this);
 
         objectDetectingView = (ObjectDetectingView) findViewById(R.id.photograph_view);
+
         objectDetectingView.setOnOpenCVLoadListener(new OnOpenCVLoadListener() {
             @Override
             public void onOpenCVLoadSuccess() {
@@ -58,9 +58,11 @@ public class ObjectDetectingActivity extends Activity implements CompoundButton.
 
             @Override
             public void onNotInstallOpenCVManager() {
-                Toast.makeText(getApplicationContext(), "没有安装OpenCV Manager", Toast.LENGTH_SHORT).show();
+                showInstallDialog();
             }
         });
+
+        objectDetectingView.loadOpenCV(getApplicationContext());
     }
 
     /**
