@@ -17,5 +17,12 @@
 
 - CamShift算法实现目标追踪
 
+### 效果图
+
+![目标检测](https://github.com/kongqw/OpenCVForAndroid/blob/opencv3.2.0/gif/ObjectDetecting.gif)
+
+![目标检测](https://github.com/kongqw/OpenCVForAndroid/blob/opencv3.2.0/gif/ObjectTracking.gif)
+
+## 人脸识别
 
 人脸识别（对比）请切换到[master](https://github.com/kongqw/FaceDetectLibrary/tree/master)分支，基于OpenCV 2.4.11。
